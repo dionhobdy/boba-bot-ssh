@@ -5,7 +5,6 @@ body {
     font-family: monospace;
 }
 
-/* ASCII logo */
 pre {
     font-family: monospace;
     font-size: clamp(8px, 2.5vw, 16px);
@@ -13,6 +12,30 @@ pre {
     white-space: pre;
     text-align: center;
     overflow: hidden;
+}
+
+#command {
+    outline: none;
+    color: #ebebeb;
+    font-family: monospace;
+    font-size: 16px;
+    caret-color: transparent;
+    white-space: pre;
+}
+
+#command:after {
+    content: "_";
+    animation: blink 1s step-end infinite;
+}
+
+#command-wrapper {
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+#cursor {
+    animation: blink 1s step-end infinite;
 }
 
 /* Terminal */
@@ -32,8 +55,14 @@ pre {
 /* Command line */
 #input-line {
     display: flex;
-    gap: 10px;
+    gap: 0;
     white-space: nowrap;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
 }
 
 /* Prompt */

@@ -1,19 +1,34 @@
 const input = document.getElementById("command");
 const output = document.getElementById("output");
 
+input.focus();
+
 input.addEventListener("keydown", function(event) {
-    if (event.key !== "Enter") { return; }
 
-    const command = input.value.trim();
+    if (event.key !== "Enter") {
+        return;
+    }
 
-    output.innerHTML += ` user@boba-bot:~$ ${command}<br> `;
+    event.preventDefault();
+
+    const command = input.textContent.trim();
+
+    output.innerHTML += `user@boba-bot:~$ ${command}<br>`;
+
     executeCommand(command);
 
-    input.value = "";
+    input.textContent = "";
 });
 
+
 function executeCommand(command) {
+
     switch (command) {
+
+        case "clear":
+            output.innerHTML = "";
+            break;
+
         case "help":
             output.innerHTML += `
                 Available Commands:<br>
@@ -23,10 +38,12 @@ function executeCommand(command) {
                 loadMenu
                 ls
                 open
-                saveMenu<br>
+                saveMenu
             `;
             break;
+
         default:
-            output.innerHTML += ` Command not found: ${command}<br><br> `;
+            output.innerHTML +=
+                `Command not found: ${command}<br><br>`;
     }
 }
