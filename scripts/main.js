@@ -23,7 +23,7 @@ function executeCommand(command) {
                 loadMenu
                 ls
                 open
-                saveMenu
+                saveMenu<br>
             `;
             break;
         default:
