@@ -5,12 +5,17 @@ body {
     font-family: monospace;
 }
 
+/* ASCII logo */
 pre {
     font-family: monospace;
-    font-size: .25vw;
+    font-size: clamp(8px, 2.5vw, 16px);
     line-height: 1;
+    white-space: pre;
+    text-align: center;
+    overflow: hidden;
 }
 
+/* Terminal */
 #terminal {
     padding: 20px;
     height: 100vh;
@@ -19,17 +24,27 @@ pre {
     margin: auto;
 }
 
+/* Output */
 #output {
     white-space: pre-wrap;
 }
 
+/* Command line */
 #input-line {
     display: flex;
     gap: 10px;
+    white-space: nowrap;
 }
 
+/* Prompt */
+#input-line span {
+    flex-shrink: 0;
+}
+
+/* Input */
 #input-line input {
     flex: 1;
+    min-width: 0;
     background: transparent;
     border: none;
     outline: none;
